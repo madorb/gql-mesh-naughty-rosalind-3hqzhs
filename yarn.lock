@@ -865,14 +865,14 @@
     "@whatwg-node/server" "^0.9.0"
     graphql-yoga "^4.0.5"
 
-"@graphql-mesh/json-schema@0.95.8":
-  version "0.95.8"
-  resolved "https://registry.yarnpkg.com/@graphql-mesh/json-schema/-/json-schema-0.95.8.tgz#77d358afbae9c451d10e3f7a49cce74abbc76d69"
-  integrity sha512-QPd6fCsDsfaUmvCjYp+tWH51vXxVv/ESdsfrqGwnElRsIUmd4F34grZPgvvm+Kxa1JIY+msFUdOScs5MhwuaGQ==
+"@graphql-mesh/json-schema@0.95.9":
+  version "0.95.9"
+  resolved "https://registry.yarnpkg.com/@graphql-mesh/json-schema/-/json-schema-0.95.9.tgz#5499221bb20bedfcb040fb682089be3ddd9fa6a4"
+  integrity sha512-rohHIopXDDCdX8o+LR3RZ3HBcY2zHox4F4Yj/JWZ+bYjW9YUc9qJp+7kg5O4Wu0qfdZ7V+hp92Wclvb2qvWrgw==
   dependencies:
     "@graphql-mesh/string-interpolation" "0.5.2"
     "@json-schema-tools/meta-schema" "1.7.0"
-    "@omnigraph/json-schema" "0.95.8"
+    "@omnigraph/json-schema" "0.95.9"
     graphql-compose "9.0.10"
     json-machete "0.95.7"
 
@@ -893,16 +893,16 @@
     "@graphql-tools/schema" "^10.0.0"
     "@graphql-tools/stitch" "^9.0.0"
 
-"@graphql-mesh/plugin-mock@0.95.7":
-  version "0.95.7"
-  resolved "https://registry.yarnpkg.com/@graphql-mesh/plugin-mock/-/plugin-mock-0.95.7.tgz#5c45c15488feb44ec480746264c2f1d71e6a6d4c"
-  integrity sha512-gdDGLQEbBvGbaoPFlP9F+ds8DF7BcJpQ1qFdlQA5Q8fSazsmQd7mnsyuK5H8HkGmlmWYt1WAf2M9alRrRrh3Pw==
+"@graphql-mesh/plugin-mock@0.95.8":
+  version "0.95.8"
+  resolved "https://registry.yarnpkg.com/@graphql-mesh/plugin-mock/-/plugin-mock-0.95.8.tgz#57ddf2fac8b343fac112b425a33492c1f36f91cb"
+  integrity sha512-5X0DYZIXPmSe1pekzyZ402v0LJ46zIO3ZunvGN7PXwEEVrUFudw1lo07ObGwYiZWdUJLv5wqTCZQU0jvJDGdvg==
   dependencies:
     "@graphql-mesh/string-interpolation" "^0.5.2"
     "@graphql-tools/mock" "^9.0.0"
     "@graphql-tools/schema" "^10.0.0"
     faker "5.5.3"
-    graphql-scalars "^1.22.2"
+    graphql-scalars "^1.22.4"
 
 "@graphql-mesh/runtime@^0.96.10":
   version "0.96.10"
@@ -1546,10 +1546,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@omnigraph/json-schema@0.95.8":
-  version "0.95.8"
-  resolved "https://registry.yarnpkg.com/@omnigraph/json-schema/-/json-schema-0.95.8.tgz#299eb47982b111e9a0c7552ff0dd7f7b042f2483"
-  integrity sha512-LYSuUIsrUvGDYhgfBvvfDPfwwLwUtblkkQ9stU2K4S/bCqOF7gWlNytnzbiIvVNLaf/znVZ76fmjRsnAT8R5Nw==
+"@omnigraph/json-schema@0.95.9":
+  version "0.95.9"
+  resolved "https://registry.yarnpkg.com/@omnigraph/json-schema/-/json-schema-0.95.9.tgz#a73af9ad038efe08ed1b1a993733ca14e59552e7"
+  integrity sha512-n1n1z+ikculkoh/8JYVS4EiGlI4yXBOzZjLFpnBXgZfRK1UsxjjpjJaoqGxYzx0/Cz84JyPEi1kjnm4LG9HaJg==
   dependencies:
     "@graphql-mesh/string-interpolation" "0.5.2"
     "@json-schema-tools/meta-schema" "1.7.0"
@@ -1558,7 +1558,7 @@
     ajv-formats "2.1.1"
     dset "3.1.2"
     graphql-compose "9.0.10"
-    graphql-scalars "^1.22.2"
+    graphql-scalars "^1.22.4"
     json-machete "0.95.7"
     pascal-case "3.1.2"
     qs "6.11.2"
@@ -2948,10 +2948,10 @@ graphql-jit@^0.8.0:
     lodash.merge "4.6.2"
     lodash.mergewith "4.6.2"
 
-graphql-scalars@^1.22.2:
-  version "1.22.2"
-  resolved "https://registry.yarnpkg.com/graphql-scalars/-/graphql-scalars-1.22.2.tgz#6326e6fe2d0ad4228a9fea72a977e2bf26b86362"
-  integrity sha512-my9FB4GtghqXqi/lWSVAOPiTzTnnEzdOXCsAC2bb5V7EFNQjVjwy3cSSbUvgYOtDuDibd+ZsCDhz+4eykYOlhQ==
+graphql-scalars@^1.22.4:
+  version "1.22.4"
+  resolved "https://registry.yarnpkg.com/graphql-scalars/-/graphql-scalars-1.22.4.tgz#af092b142bcfd5c1f8c53cb70ee1955ecd4ddb03"
+  integrity sha512-ILnv7jq5VKHLUyoaTFX7lgYrjCd6vTee9i8/B+D4zJKJT5TguOl0KkpPEbXHjmeor8AZYrVsrYUHdqRBMX1pjA==
   dependencies:
     tslib "^2.5.0"
 
@@ -5015,7 +5015,7 @@ typescript@^5.0.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.3.tgz#8d84219244a6b40b6fb2b33cc1c062f715b9e826"
   integrity sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==
 
-"uWebSockets.js@github:uNetworking/uWebSockets.js#semver:^20":
+"uWebSockets.js@uNetworking/uWebSockets.js#semver:^20":
   version "20.32.0"
   resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/21c0e41a662c27bcc29b64f3e9d7f0bdaa6d7ee7"
 
