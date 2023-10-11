@@ -1,13 +1,28 @@
-schema {
+schema @link(url: "https://specs.apollo.dev/federation/v1.0", import: []) {
   query: Query
 }
+
+directive @enum(value: String) on ENUM_VALUE
+
+directive @typescript(type: String) on SCALAR | ENUM
+
+directive @example(value: ObjMap) repeatable on FIELD_DEFINITION | OBJECT | INPUT_OBJECT | ENUM | SCALAR
 
 directive @globalOptions(sourceName: String, endpoint: String, operationHeaders: ObjMap, queryStringOptions: ObjMap, queryParams: ObjMap) on OBJECT
 
 directive @httpOperation(path: String, operationSpecificHeaders: ObjMap, httpMethod: HTTPMethod, isBinary: Boolean, requestBaseBody: ObjMap, queryParamArgMap: ObjMap, queryStringOptionsByParam: ObjMap) on FIELD_DEFINITION
 
-type Query @globalOptions(sourceName: "Hello World") {
-  greeting: String @httpOperation(path: "/", httpMethod: GET)
+type Query @globalOptions(sourceName: "Hello World", endpoint: "http://localhost:8080") {
+  "get"
+  getFoo: foo @httpOperation(path: "/somepath", operationSpecificHeaders: "{\"accept\":\"application/json\"}", httpMethod: GET)
+}
+
+type foo {
+  bar: SINGLEVALUE_const
+}
+
+enum SINGLEVALUE_const @typescript(type: "\"SINGLEVALUE\"") @example(value: "\"SINGLEVALUE\"") {
+  SINGLEVALUE @enum(value: "\"SINGLEVALUE\"")
 }
 
 scalar ObjMap

@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: API Title
+  description: API Description
+  version: 1.0.0
+components:
+  schemas:
+    foo:
+      type: object
+      properties:
+        bar:
+          type: string
+          enum:
+            - "SINGLEVALUE"
+          default: "SINGLEVALUE"
+paths:
+  /somepath:
+    get:
+      summary: get
+      operationId: getFoo
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/foo"

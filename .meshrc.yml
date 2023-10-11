@@ -1,19 +1,9 @@
 sources:
   - name: Hello World
     handler:
-      jsonSchema:
-        operations:
-          - type: Query
-            field: greeting
-            method: GET
-            path: /
-            responseSample: greeting.json
-plugins:
-  - mock:
-      mocks:
-        - apply: Query.greeting
-documents:
-  - |
-    query HelloWorld {
-      greeting
-    }
+      openapi:
+        endpoint: 'http://localhost:8080'
+        source: ./oas.yml
+transforms:
+  - federation:
+      version: v1.0

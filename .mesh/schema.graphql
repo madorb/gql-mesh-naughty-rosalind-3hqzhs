@@ -1,13 +1,31 @@
-schema {
+schema @link(url: "https://specs.apollo.dev/federation/v1.0", import: []) {
   query: Query
 }
 
-directive @globalOptions(sourceName: String, endpoint: String, operationHeaders: ObjMap, queryStringOptions: ObjMap, queryParams: ObjMap) on OBJECT
+type Query {
+  "get"
+  getFoo: foo
+  _entities(representations: [_Any!]!): [_Entity]!
+  _service: _Service!
+}
 
-directive @httpOperation(path: String, operationSpecificHeaders: ObjMap, httpMethod: HTTPMethod, isBinary: Boolean, requestBaseBody: ObjMap, queryParamArgMap: ObjMap, queryStringOptionsByParam: ObjMap) on FIELD_DEFINITION
+union _Entity
 
-type Query @globalOptions(sourceName: "Hello World") {
-  greeting: String @httpOperation(path: "/", httpMethod: GET)
+scalar _Any
+
+type _Service {
+  """
+  The sdl representing the federated service capabilities. Includes federation directives, removes federation types, and includes rest of full schema after schema directives have been applied
+  """
+  sdl: String
+}
+
+type foo {
+  bar: SINGLEVALUE_const
+}
+
+enum SINGLEVALUE_const @typescript(type: "\"SINGLEVALUE\"") @example(value: "\"SINGLEVALUE\"") {
+  SINGLEVALUE @enum(value: "\"SINGLEVALUE\"")
 }
 
 scalar ObjMap

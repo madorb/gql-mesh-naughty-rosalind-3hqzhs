@@ -14,7 +14,6 @@ export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' |
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string | number; output: string; }
-  /** The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text. */
   String: { input: string; output: string; }
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
@@ -23,8 +22,16 @@ export type Scalars = {
 };
 
 export type Query = {
-  greeting?: Maybe<Scalars['String']['output']>;
+  /** get */
+  getFoo?: Maybe<foo>;
 };
+
+export type foo = {
+  bar?: Maybe<SINGLEVALUE_const>;
+};
+
+export type SINGLEVALUE_const =
+  | 'SINGLEVALUE';
 
 export type HTTPMethod =
   | 'GET'
@@ -38,8 +45,8 @@ export type HTTPMethod =
   | 'PATCH';
 
   export type QuerySdk = {
-      /** undefined **/
-  greeting: InContextSdkMethod<Query['greeting'], {}, MeshContext>
+      /** get **/
+  getFoo: InContextSdkMethod<Query['getFoo'], {}, MeshContext>
   };
 
   export type MutationSdk = {
