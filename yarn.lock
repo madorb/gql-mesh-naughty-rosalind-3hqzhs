@@ -865,14 +865,14 @@
     "@whatwg-node/server" "^0.9.0"
     graphql-yoga "^4.0.5"
 
-"@graphql-mesh/json-schema@0.95.9":
-  version "0.95.9"
-  resolved "https://registry.yarnpkg.com/@graphql-mesh/json-schema/-/json-schema-0.95.9.tgz#5499221bb20bedfcb040fb682089be3ddd9fa6a4"
-  integrity sha512-rohHIopXDDCdX8o+LR3RZ3HBcY2zHox4F4Yj/JWZ+bYjW9YUc9qJp+7kg5O4Wu0qfdZ7V+hp92Wclvb2qvWrgw==
+"@graphql-mesh/json-schema@0.95.10":
+  version "0.95.10"
+  resolved "https://registry.yarnpkg.com/@graphql-mesh/json-schema/-/json-schema-0.95.10.tgz#b182331a9a0206433c9984e0c58ce6059f2fc54a"
+  integrity sha512-n+gMkiN62g9VG/2KxGB2wXNATB58UvsrmfFVMu+G/Z3dFA2LaPRoKN3WM56XlN6Rv9Y2lNkewbioBydUJG9+kA==
   dependencies:
     "@graphql-mesh/string-interpolation" "0.5.2"
     "@json-schema-tools/meta-schema" "1.7.0"
-    "@omnigraph/json-schema" "0.95.9"
+    "@omnigraph/json-schema" "0.95.10"
     graphql-compose "9.0.10"
     json-machete "0.95.7"
 
@@ -1546,10 +1546,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@omnigraph/json-schema@0.95.9":
-  version "0.95.9"
-  resolved "https://registry.yarnpkg.com/@omnigraph/json-schema/-/json-schema-0.95.9.tgz#a73af9ad038efe08ed1b1a993733ca14e59552e7"
-  integrity sha512-n1n1z+ikculkoh/8JYVS4EiGlI4yXBOzZjLFpnBXgZfRK1UsxjjpjJaoqGxYzx0/Cz84JyPEi1kjnm4LG9HaJg==
+"@omnigraph/json-schema@0.95.10":
+  version "0.95.10"
+  resolved "https://registry.yarnpkg.com/@omnigraph/json-schema/-/json-schema-0.95.10.tgz#7aacef5ce7d52e274a4b6c2c43e90cf90920d4b7"
+  integrity sha512-WE5VljFakF81Mcu6nVYXJknWGmyO53CNyV5rgGKZ9F3K0rQPKI4i7gG+QGwFTdjngnD6Wxy3cXN+Hu3NY2a0kw==
   dependencies:
     "@graphql-mesh/string-interpolation" "0.5.2"
     "@json-schema-tools/meta-schema" "1.7.0"
