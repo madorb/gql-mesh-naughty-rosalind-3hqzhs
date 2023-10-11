@@ -5,23 +5,55 @@ info:
   version: 1.0.0
 components:
   schemas:
-    foo:
-      type: object
-      properties:
-        bar:
-          type: string
-          enum:
-            - "SINGLEVALUE"
-          default: "SINGLEVALUE"
+    incorrectSingleValue:
+      description: "Expected @enum/@typescript directives to be removed by federation transformer for v1. Also note: Description is not added to gql schema"
+      type: string
+      enum:
+        - "SINGLEVALUE"
+      default: "SINGLEVALUE"
+    incorrectInteger:
+      description: "Expected @enum directive to be removed by federation transformer for v1"
+      type: string
+      enum:
+        - 0 
+        - 1 
+    correctNormal:
+      description: "Works as expected"
+      type: string
+      enum:
+        - "FIRSTVALUE"
+        - "SECONDVALUE"
 paths:
-  /somepath:
+  /somepath1:
     get:
       summary: get
-      operationId: getFoo
+      operationId: getIncorrectSingleValue
       responses:
         "200":
           description: A successful response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/foo"
+                $ref: "#/components/schemas/incorrectSingleValue"
+  /somepath2:
+    get:
+      summary: get
+      operationId: getIncorrectInteger
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/incorrectInteger"
+  /somepath3:
+    get:
+      summary: get
+      operationId: getCorrect
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/correctNormal"

@@ -3,7 +3,7 @@ sources:
     handler:
       openapi:
         endpoint: 'http://localhost:8080'
-        source: ./oas.yml
+        source: './oas.yml'
 transforms:
   - federation:
       version: v1.0

@@ -43,7 +43,11 @@ export type Scalars = {
 
 export type Query = {
   /** get */
-  getFoo?: Maybe<foo>;
+  getIncorrectSingleValue?: Maybe<incorrectSingleValue>;
+  /** get */
+  getIncorrectInteger?: Maybe<incorrectInteger>;
+  /** get */
+  getCorrect?: Maybe<correctNormal>;
   _entities: Array<Maybe<_Entity>>;
   _service: _Service;
 };
@@ -60,12 +64,18 @@ export type _Service = {
   sdl?: Maybe<Scalars['String']['output']>;
 };
 
-export type foo = {
-  bar?: Maybe<SINGLEVALUE_const>;
-};
-
-export type SINGLEVALUE_const =
+export type incorrectSingleValue =
   | 'SINGLEVALUE';
+
+/** Expected @enum directive to be removed by federation transformer for v1 */
+export type incorrectInteger =
+  | '_0'
+  | '_1';
+
+/** Works as expected */
+export type correctNormal =
+  | 'FIRSTVALUE'
+  | 'SECONDVALUE';
 
 export type HTTPMethod =
   | 'GET'
@@ -172,8 +182,9 @@ export type ResolversTypes = ResolversObject<{
   _Entity: ResolverTypeWrapper<ResolversUnionTypes<ResolversTypes>['_Entity']>;
   _Any: ResolverTypeWrapper<Scalars['_Any']['output']>;
   _Service: ResolverTypeWrapper<_Service>;
-  foo: ResolverTypeWrapper<foo>;
-  SINGLEVALUE_const: SINGLEVALUE_const;
+  incorrectSingleValue: incorrectSingleValue;
+  incorrectInteger: incorrectInteger;
+  correctNormal: correctNormal;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   ObjMap: ResolverTypeWrapper<Scalars['ObjMap']['output']>;
@@ -186,14 +197,15 @@ export type ResolversParentTypes = ResolversObject<{
   _Entity: ResolversUnionTypes<ResolversParentTypes>['_Entity'];
   _Any: Scalars['_Any']['output'];
   _Service: _Service;
-  foo: foo;
   Boolean: Scalars['Boolean']['output'];
   String: Scalars['String']['output'];
   ObjMap: Scalars['ObjMap']['output'];
 }>;
 
 export type QueryResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  getFoo?: Resolver<Maybe<ResolversTypes['foo']>, ParentType, ContextType>;
+  getIncorrectSingleValue?: Resolver<Maybe<ResolversTypes['incorrectSingleValue']>, ParentType, ContextType>;
+  getIncorrectInteger?: Resolver<Maybe<ResolversTypes['incorrectInteger']>, ParentType, ContextType>;
+  getCorrect?: Resolver<Maybe<ResolversTypes['correctNormal']>, ParentType, ContextType>;
   _entities?: Resolver<Array<Maybe<ResolversTypes['_Entity']>>, ParentType, ContextType, RequireFields<Query_entitiesArgs, 'representations'>>;
   _service?: Resolver<ResolversTypes['_Service'], ParentType, ContextType>;
 }>;
@@ -211,10 +223,7 @@ export type _ServiceResolvers<ContextType = MeshContext, ParentType extends Reso
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type fooResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['foo'] = ResolversParentTypes['foo']> = ResolversObject<{
-  bar?: Resolver<Maybe<ResolversTypes['SINGLEVALUE_const']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+export type incorrectIntegerResolvers = { _0: 0, _1: 1 };
 
 export interface ObjMapScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['ObjMap'], any> {
   name: 'ObjMap';
@@ -225,7 +234,7 @@ export type Resolvers<ContextType = MeshContext> = ResolversObject<{
   _Entity?: _EntityResolvers<ContextType>;
   _Any?: GraphQLScalarType;
   _Service?: _ServiceResolvers<ContextType>;
-  foo?: fooResolvers<ContextType>;
+  incorrectInteger?: incorrectIntegerResolvers;
   ObjMap?: GraphQLScalarType;
 }>;
 

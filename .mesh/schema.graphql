@@ -4,7 +4,11 @@ schema @link(url: "https://specs.apollo.dev/federation/v1.0", import: []) {
 
 type Query {
   "get"
-  getFoo: foo
+  getIncorrectSingleValue: incorrectSingleValue
+  "get"
+  getIncorrectInteger: incorrectInteger
+  "get"
+  getCorrect: correctNormal
   _entities(representations: [_Any!]!): [_Entity]!
   _service: _Service!
 }
@@ -20,12 +24,20 @@ type _Service {
   sdl: String
 }
 
-type foo {
-  bar: SINGLEVALUE_const
+enum incorrectSingleValue @typescript(type: "\"SINGLEVALUE\"") @example(value: "\"SINGLEVALUE\"") {
+  SINGLEVALUE @enum(value: "\"SINGLEVALUE\"")
 }
 
-enum SINGLEVALUE_const @typescript(type: "\"SINGLEVALUE\"") @example(value: "\"SINGLEVALUE\"") {
-  SINGLEVALUE @enum(value: "\"SINGLEVALUE\"")
+"Expected @enum directive to be removed by federation transformer for v1"
+enum incorrectInteger {
+  _0 @enum(value: "0")
+  _1 @enum(value: "1")
+}
+
+"Works as expected"
+enum correctNormal {
+  FIRSTVALUE
+  SECONDVALUE
 }
 
 scalar ObjMap

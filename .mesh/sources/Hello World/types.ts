@@ -23,15 +23,25 @@ export type Scalars = {
 
 export type Query = {
   /** get */
-  getFoo?: Maybe<foo>;
+  getIncorrectSingleValue?: Maybe<incorrectSingleValue>;
+  /** get */
+  getIncorrectInteger?: Maybe<incorrectInteger>;
+  /** get */
+  getCorrect?: Maybe<correctNormal>;
 };
 
-export type foo = {
-  bar?: Maybe<SINGLEVALUE_const>;
-};
-
-export type SINGLEVALUE_const =
+export type incorrectSingleValue =
   | 'SINGLEVALUE';
+
+/** Expected @enum directive to be removed by federation transformer for v1 */
+export type incorrectInteger =
+  | '_0'
+  | '_1';
+
+/** Works as expected */
+export type correctNormal =
+  | 'FIRSTVALUE'
+  | 'SECONDVALUE';
 
 export type HTTPMethod =
   | 'GET'
@@ -46,7 +56,11 @@ export type HTTPMethod =
 
   export type QuerySdk = {
       /** get **/
-  getFoo: InContextSdkMethod<Query['getFoo'], {}, MeshContext>
+  getIncorrectSingleValue: InContextSdkMethod<Query['getIncorrectSingleValue'], {}, MeshContext>,
+  /** get **/
+  getIncorrectInteger: InContextSdkMethod<Query['getIncorrectInteger'], {}, MeshContext>,
+  /** get **/
+  getCorrect: InContextSdkMethod<Query['getCorrect'], {}, MeshContext>
   };
 
   export type MutationSdk = {

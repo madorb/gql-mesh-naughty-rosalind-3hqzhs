@@ -361,14 +361,14 @@ const schemaAST = {
           },
           "name": {
             "kind": "Name",
-            "value": "getFoo"
+            "value": "getIncorrectSingleValue"
           },
           "arguments": [],
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "foo"
+              "value": "incorrectSingleValue"
             }
           },
           "directives": [
@@ -387,7 +387,133 @@ const schemaAST = {
                   },
                   "value": {
                     "kind": "StringValue",
-                    "value": "/somepath"
+                    "value": "/somepath1"
+                  }
+                },
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "operationSpecificHeaders"
+                  },
+                  "value": {
+                    "kind": "StringValue",
+                    "value": "{\"accept\":\"application/json\"}"
+                  }
+                },
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "httpMethod"
+                  },
+                  "value": {
+                    "kind": "EnumValue",
+                    "value": "GET"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "get"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "getIncorrectInteger"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "incorrectInteger"
+            }
+          },
+          "directives": [
+            {
+              "kind": "Directive",
+              "name": {
+                "kind": "Name",
+                "value": "httpOperation"
+              },
+              "arguments": [
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "path"
+                  },
+                  "value": {
+                    "kind": "StringValue",
+                    "value": "/somepath2"
+                  }
+                },
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "operationSpecificHeaders"
+                  },
+                  "value": {
+                    "kind": "StringValue",
+                    "value": "{\"accept\":\"application/json\"}"
+                  }
+                },
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "httpMethod"
+                  },
+                  "value": {
+                    "kind": "EnumValue",
+                    "value": "GET"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "get"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "getCorrect"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "correctNormal"
+            }
+          },
+          "directives": [
+            {
+              "kind": "Directive",
+              "name": {
+                "kind": "Name",
+                "value": "httpOperation"
+              },
+              "arguments": [
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "path"
+                  },
+                  "value": {
+                    "kind": "StringValue",
+                    "value": "/somepath3"
                   }
                 },
                 {
@@ -453,37 +579,10 @@ const schemaAST = {
       ]
     },
     {
-      "kind": "ObjectTypeDefinition",
-      "name": {
-        "kind": "Name",
-        "value": "foo"
-      },
-      "fields": [
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "bar"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "SINGLEVALUE_const"
-            }
-          },
-          "directives": []
-        }
-      ],
-      "interfaces": [],
-      "directives": []
-    },
-    {
       "kind": "EnumTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "SINGLEVALUE_const"
+        "value": "incorrectSingleValue"
       },
       "values": [
         {
@@ -558,6 +657,108 @@ const schemaAST = {
           ]
         }
       ]
+    },
+    {
+      "kind": "EnumTypeDefinition",
+      "description": {
+        "kind": "StringValue",
+        "value": "Expected @enum directive to be removed by federation transformer for v1"
+      },
+      "name": {
+        "kind": "Name",
+        "value": "incorrectInteger"
+      },
+      "values": [
+        {
+          "kind": "EnumValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "_0"
+          },
+          "directives": [
+            {
+              "kind": "Directive",
+              "name": {
+                "kind": "Name",
+                "value": "enum"
+              },
+              "arguments": [
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "value"
+                  },
+                  "value": {
+                    "kind": "StringValue",
+                    "value": "0"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "EnumValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "_1"
+          },
+          "directives": [
+            {
+              "kind": "Directive",
+              "name": {
+                "kind": "Name",
+                "value": "enum"
+              },
+              "arguments": [
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "value"
+                  },
+                  "value": {
+                    "kind": "StringValue",
+                    "value": "1"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "directives": []
+    },
+    {
+      "kind": "EnumTypeDefinition",
+      "description": {
+        "kind": "StringValue",
+        "value": "Works as expected"
+      },
+      "name": {
+        "kind": "Name",
+        "value": "correctNormal"
+      },
+      "values": [
+        {
+          "kind": "EnumValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "FIRSTVALUE"
+          },
+          "directives": []
+        },
+        {
+          "kind": "EnumValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "SECONDVALUE"
+          },
+          "directives": []
+        }
+      ],
+      "directives": []
     },
     {
       "kind": "ScalarTypeDefinition",
